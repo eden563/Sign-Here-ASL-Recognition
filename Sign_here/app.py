@@ -4,6 +4,9 @@ import tensorflow as tf
 import numpy as np
 import json
 from PIL import Image
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 st.set_page_config(
     page_title="Sign Here - ASL Recognition",
