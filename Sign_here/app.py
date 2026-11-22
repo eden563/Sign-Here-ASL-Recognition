@@ -16,15 +16,15 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model(
-        "sign_here_cnn.keras",
-        compile=False
-    )
+    model_path = BASE_DIR / "sign_here_cnn.keras"
+    return tf.keras.models.load_model(model_path, compile=False)
 
 @st.cache_data
 def load_mapping():
-    with open("class_mapping.json", "r") as file:
-        return json.load(file)
+    mapping_path = BASE_DIR / "class_mapping.json"
+
+    with open(mapping_path, "r") as f:
+        return json.load(f)
 
 model = load_model()
 class_mapping = load_mapping()
